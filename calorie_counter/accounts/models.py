@@ -12,6 +12,6 @@ class User(AbstractUser):
         _('daily calorie goal'),
         default=2000,
         validators=[
-            validators.MinValueValidator(500)
+            validators.MinValueValidator(500),
         ]
     )

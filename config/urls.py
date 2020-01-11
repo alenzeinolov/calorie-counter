@@ -14,9 +14,10 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 # from django.contrib import admin
-from django.urls import path, include
+from django.urls import include, path
 from rest_framework.routers import DefaultRouter
 
+from calorie_counter.accounts.api.views import UserCreateView, UserUpdateView
 from calorie_counter.counter.api.viewsets import CalorieRecordViewSet
 
 router = DefaultRouter()
@@ -24,5 +25,6 @@ router.register('calorie_record', CalorieRecordViewSet, basename='calorie_record
 
 urlpatterns = [
     # path('admin/', admin.site.urls),
+    path('api/accounts/', include('calorie_counter.accounts.urls')),
     path('api/', include(router.urls)),
 ]
