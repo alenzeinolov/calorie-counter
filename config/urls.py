@@ -20,11 +20,8 @@ from rest_framework.routers import DefaultRouter
 from calorie_counter.accounts.api.views import UserCreateView, UserUpdateView
 from calorie_counter.counter.api.viewsets import CalorieRecordViewSet
 
-router = DefaultRouter()
-router.register('calorie_record', CalorieRecordViewSet, basename='calorie_record')
-
 urlpatterns = [
     # path('admin/', admin.site.urls),
     path('api/accounts/', include('calorie_counter.accounts.urls')),
-    path('api/', include(router.urls)),
+    path('api/counter/', include('calorie_counter.counter.urls')),
 ]

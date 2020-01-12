@@ -11,4 +11,5 @@ class CalorieRecordSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = CalorieRecord
-        fields = ('id', 'user', 'calories', 'comment', 'date')
+        fields = ('id', 'user', 'calories', 'comment', 'on_target', 'date')
+        read_only_fields = ('on_target', )

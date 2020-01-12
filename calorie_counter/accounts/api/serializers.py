@@ -3,6 +3,7 @@ from rest_framework import serializers
 from rest_framework.exceptions import ValidationError
 
 from ..models import User
+from ...counter.models import CalorieRecord
 
 
 class UserCreateSerializer(serializers.ModelSerializer):
@@ -42,3 +43,8 @@ class UserUpdateSerializer(serializers.ModelSerializer):
         model = User
         fields = ('id', 'username', 'email', 'first_name', 'last_name', 'daily_calorie_goal')
         read_only_fields = ('username', 'email', 'first_name', 'last_name')
+
+    def update(self, instance, validated_data):
+        instance = super(UserUpdateSerializer, self).update(instance, validated_data)
+        CalorieRecord.objects.recalculate_on_target(instance)
+        return instance

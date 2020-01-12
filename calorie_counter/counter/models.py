@@ -5,6 +5,8 @@ from django.core import validators
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
+from .managers import CalorieRecordManager
+
 
 class CalorieRecord(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4)
@@ -25,8 +27,12 @@ class CalorieRecord(models.Model):
         default='',
         blank=True,
     )
+    on_target = models.BooleanField(default=True)
     date = models.DateTimeField(_('date'))
+
+    objects = CalorieRecordManager()
 
     class Meta:
         verbose_name = _('calorie record')
         verbose_name_plural = _('calorie records')
+        ordering = ['date']
