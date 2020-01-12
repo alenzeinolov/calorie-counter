@@ -11,7 +11,7 @@ from ..models import CalorieRecord
 class CalorieRecordViewSet(ModelViewSet):
     queryset = CalorieRecord.objects.all()
     serializer_class = CalorieRecordSerializer
-    permission_classes = (IsAuthenticated, )
-    filter_backends = (DjangoFilterBackend, )
+    permission_classes = [IsAuthenticated]
+    filter_backends = [DjangoFilterBackend]
     filterset_class = CalorieRecordFilterSet
     pagination_class = PageNumberPagination

@@ -46,5 +46,5 @@ class UserUpdateSerializer(serializers.ModelSerializer):
 
     def update(self, instance, validated_data):
         instance = super(UserUpdateSerializer, self).update(instance, validated_data)
-        CalorieRecord.objects.recalculate_on_target(instance)
+        CalorieRecord.objects.recalculate_on_goal(instance)
         return instance

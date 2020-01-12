@@ -24,4 +24,5 @@ urlpatterns = [
     # path('admin/', admin.site.urls),
     path('api/accounts/', include('calorie_counter.accounts.urls')),
     path('api/counter/', include('calorie_counter.counter.urls')),
+    path('api/reports/', include('calorie_counter.reports.urls')),
 ]

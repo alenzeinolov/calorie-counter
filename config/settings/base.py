@@ -7,7 +7,8 @@ ROOT_DIR = Path(__file__).resolve().parent.parent.parent
 APPS_DIR = ROOT_DIR / 'calorie_counter'
 
 
-with open('config.json', 'r') as f:
+# with open('config.json', 'r') as f:
+with open('config_sample.json', 'r') as f:
     config_file = json.loads(f.read())
 
 
@@ -78,6 +79,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'config.wsgi.application'
 
 
+# TEMP DATABASE
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',

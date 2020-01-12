@@ -27,7 +27,7 @@ class CalorieRecord(models.Model):
         default='',
         blank=True,
     )
-    on_target = models.BooleanField(default=True)
+    on_goal = models.BooleanField(default=True)
     date = models.DateTimeField(_('date'))
 
     objects = CalorieRecordManager()
